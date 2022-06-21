@@ -1,0 +1,29 @@
+.body{
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 52px;
+  flex-direction: column;
+}
+.cristal-background {
+  width: 161px;
+  height: 161px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(#00adff70 -18%, white 66%);
+  cursor: pointer;
+}
+.cristal-img {
+  width: 100px;
+}
+
+.cristal_cash_text {
+  font-weight: bold;
+  color: #1aaee3;
+  font-size: 17px;
+}
+.gray{
+  background: radial-gradient(#74747470 -18%, white 66%) !important;
+}

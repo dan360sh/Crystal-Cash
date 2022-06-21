@@ -1,0 +1,23 @@
+<app-header></app-header>
+<app-crystal></app-crystal>
+<div *ngIf="getUserService.formFlag == 'reg'" class="modal-body">
+  <nav ngbNav #nav="ngbNav" [activeId]="tabFlag" class="nav-tabs">
+    <ng-container [ngbNavItem]="'auth'">
+      <a ngbNavLink (click)="tab('auth')">Авторизация </a>
+      <ng-template ngbNavContent>
+        <app-authorization></app-authorization>
+      </ng-template>
+    </ng-container>
+    <ng-container [ngbNavItem]="'reg'">
+      <a (click)="tab('reg')" ngbNavLink>Регистрация</a>
+      <ng-template ngbNavContent>
+        <app-reg-user></app-reg-user>
+      </ng-template>
+    </ng-container>
+  </nav>
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
+<app-transaction-history *ngIf="getUserService.formFlag == 'transaction-history'"></app-transaction-history>
+<app-footer *ngIf="getUserService.formFlag == 'home'"></app-footer>
+<app-mail-confirmation *ngIf="getUserService.formFlag == 'mail-confirmation'"></app-mail-confirmation>
+

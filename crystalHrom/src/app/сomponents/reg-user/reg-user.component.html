@@ -1,0 +1,8 @@
+<form *ngIf="!step" (ngSubmit)="regUser()">
+  <app-butstrap-input *ngFor="let input of this.userModel" [inputModel]="input" [errorContext]="comeErrorParse">
+  </app-butstrap-input>
+  <button [disabled]="comeErrorParse.errorFlag || load" type="submit" class="btn btn-primary">
+    <span *ngIf="load" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    {{button}}</button>
+</form>
+

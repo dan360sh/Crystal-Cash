@@ -1,0 +1,51 @@
+<div class="modal-header">
+  <h4 class="modal-title">Авторизация</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <nav ngbNav #nav="ngbNav" class="nav-tabs">
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Регистрация</a>
+      <ng-template ngbNavContent>
+        <form *ngIf="!step" (ngSubmit)="regUser()" >
+          <app-butstrap-input *ngFor="let input of users" [inputModel]="input" [errorContext]="comeErrorParse">
+          </app-butstrap-input>
+          <button [disabled]="comeErrorParse.errorFlag || load"  type="submit" class="btn btn-primary">
+            <span *ngIf="load" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            {{button}}</button>
+        </form>
+        <form *ngIf="step" (ngSubmit)="cod()" >
+<!--          <p>{{email.value}}</p>-->
+          <app-butstrap-input  [inputModel]="codeField">
+          </app-butstrap-input>
+          <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Авторизация</a>
+      <ng-template ngbNavContent>
+        <form *ngIf="!passwordFlag" (ngSubmit)="authorization()" >
+          <app-butstrap-input *ngFor="let inputAuthorization of authorizationModel" [inputModel]="inputAuthorization" [errorContext]="authorizationErrorPars">
+          </app-butstrap-input>
+          <p style="color: #0d6efd; cursor: pointer;"
+             (click)="passwordFlag = !passwordFlag">Забыли пароль?</p>
+          <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+        <form *ngIf="passwordFlag" (ngSubmit)="authorization()" >
+          <app-butstrap-input *ngFor="let input of inputModel" [inputModel]="input">
+          </app-butstrap-input>
+          <p style="color: #0d6efd; cursor: pointer;"
+             (click)="passwordFlag = !passwordFlag">Забыли пароль?</p>
+          <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+      </ng-template>
+    </ng-container>
+  </nav>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+<!--  <div class="spinner-content" *ngIf="true">-->
+<!--    <mat-spinner></mat-spinner>-->
+<!--  </div>-->
+</div>
+

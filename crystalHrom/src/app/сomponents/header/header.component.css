@@ -1,0 +1,12 @@
+.login_panel{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  top: 7px;
+  position: relative;
+  width: 100%;
+}
+.errorText{
+  cursor: pointer;
+  color: #bf1717;
+}

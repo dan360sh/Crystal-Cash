@@ -1,0 +1,11 @@
+<form (ngSubmit)="mailConfirmation()">
+  <h3>Подтвердите почту</h3>
+  <p>На почту {{getUserService.user?.email}} было отправленно писимо с кодом подтверждения. Введите код из письма.</p>
+  <button class="btn btn-primary">Отправить письмо еще раз</button>
+  <button class="btn btn-primary">Сменить почту</button>
+  <app-butstrap-input  [inputModel]="mailConfirmationModel" [errorContext]="comeErrorParse">
+  </app-butstrap-input>
+  <button [disabled]="comeErrorParse.errorFlag || load" type="submit" class="btn btn-primary">
+    <span *ngIf="load" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    {{button}}</button>
+</form>

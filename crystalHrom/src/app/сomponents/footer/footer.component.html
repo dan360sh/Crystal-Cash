@@ -1,0 +1,23 @@
+<div class="count-cristal">
+  <div class="count-cristal-top">
+    <p *ngIf="getUserService.user?.countCristal" class="cristal-count-p">{{getUserService.user?.countCristal}}</p>
+    <p *ngIf="!getUserService.user?.countCristal" class="cristal-count-p">0</p>
+    <img src="/assets/img/cristal_icon.png">
+  </div>
+
+  <div class="footer">
+    <button [disabled]="!getUserService.user" (click)="transactionHistory()" style="position: relative" type="button" class="history-p btn btn-link">История транзакций
+      <div *ngIf="transaction" class="new-message">+{{getUserService.user?.transactionHistoryCount}}</div>
+    </button>
+    <div style="    display: flex;
+    flex-direction: column;
+    align-items: flex-end;">
+      <a style="display: block; margin-bottom: 18px;" href="https://www.youtube.com/watch?v=NwS9oYkzDzU&amp;ab_channel=FakeNews">
+        <button type="button" class="btn btn-info">Инфо</button>
+      </a>
+      <button [disabled]="!getUserService.user" style="position: relative" type="button" class="history-p btn btn-link">Сообщения
+        <div *ngIf="message" class="new-message">+{{getUserService.user?.messageCount}}</div>
+      </button>
+    </div>
+  </div>
+</div>

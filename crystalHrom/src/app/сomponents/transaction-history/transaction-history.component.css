@@ -1,0 +1,39 @@
+.div_message{
+  margin-bottom: 10px;
+  background-color: #1aaee321;
+  padding: 1px 15px;
+  border-radius: 10px;
+
+}
+
+.date_p{
+  font-size: 11px;
+  color: #0000003b;
+  margin: 0;
+}
+.message_p p{
+
+
+}
+.message_p span{
+  padding: 2px;
+  color: white;
+  border-radius: 3px;
+}
+.blue{
+  background-color: #0d6efd;
+}
+.red{
+  background-color: red;
+}
+.main-message{
+  margin: 0 15px;
+  height: 202px;
+  overflow: auto;
+}
+.load{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

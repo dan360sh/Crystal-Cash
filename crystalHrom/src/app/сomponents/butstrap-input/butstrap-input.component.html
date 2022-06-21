@@ -1,0 +1,12 @@
+<div class="form-group">
+  <label for="{{name}}">{{inputModel.label}}</label>
+  <input [(ngModel)]="inputModel.value"
+         name="name"
+         id="{{name}}"
+         (change)="change()"
+         [ngClass]="{'is-invalid': inputModel.error.flag}"
+         class="form-control is-invalid" placeholder="{{inputModel.placeholder}}">
+  <div class="invalid-feedback">
+    <small *ngFor="let message of inputModel.error.message">{{message}}</small>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="main-message" #mainMessage style="margin: 0 15px;" [scrollTop]="mainMessage.scrollHeight">
+  <div class="div_message" *ngFor="let message of messageParse">
+    <p class="date_p">{{message.date}}</p>
+    <div class="message_p" >
+      <p> <span [ngClass]="{'red': message.countCrystal  < 0, 'blue': message.countCrystal > 0}" ><span *ngIf="message.countCrystal > 0">+</span>{{message.countCrystal}}</span> {{message.message}}</p>
+    </div>
+  </div>
+  <div class="load" *ngIf="load">
+    <div style="width: 3rem; height: 3rem; color: #1aaee3;" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
+  </div>
+</div>

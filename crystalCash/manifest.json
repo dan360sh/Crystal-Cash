@@ -1,0 +1,37 @@
+{
+  "name": "Crystal Cash",
+  "short_name":  "Cristal Cash - Получай токены за то что ты есть!",
+  "description": "Получайте токены за использование браузера, а также за покупки в интернете!",
+  "version": "0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "background": {
+    "service_worker": "worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "jq.js",
+        "detect.js",
+        "htmlRest.js",
+        "main.js"
+      ]
+
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "notifications",
+    "storage"
+  ]
+}
