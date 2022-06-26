@@ -12,10 +12,12 @@ export class UrlFilling {
     url: string;
 
     @Prop()
+    domen: string;
+
+    @Prop()
     search: string;
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Advertisement' })
-    advertisement: Advertisement;
-
+    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref : 'Advertisement' }]})
+    advertisement: Advertisement [];
 }
 export const UrlFillingSchema = SchemaFactory.createForClass(UrlFilling);

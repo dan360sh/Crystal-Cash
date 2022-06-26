@@ -42,6 +42,12 @@ async function main(){
                         'noToken': noToken,
                     });
                 }
+            }else{
+                console.log('(setNoToken');
+                noToken = Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2);
+                chrome.storage.local.set({
+                    'noToken': noToken,
+                });
             }
         }else{
             location.href = siteHome;
@@ -50,8 +56,9 @@ async function main(){
     let response = await crystalSearch();
     console.log(response);
     for (let el of response) {
-        if(el.delete ){
-            $(el.selector).remove();
+        if(el.wherePlace === 'remove'){
+            console.log('remove', $(el.selector)[el.count]);
+            $($(el.selector)[el.count]).remove();
         }
         if (el.wherePlace === 'after') {
             $($(el.selector)[el.count]).after(el.html);

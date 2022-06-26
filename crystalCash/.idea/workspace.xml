@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efee1621-f829-4dbc-84d8-51ad1fbfca34" name="Changes" comment="" />
+    <list default="true" id="efee1621-f829-4dbc-84d8-51ad1fbfca34" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../crystal-bak/src/function/parseUrl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/dto/crystalDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/dto/crystalDto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/schemas/advertisement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/schemas/advertisement.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/schemas/urlFilling.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/schemas/urlFilling.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/users/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../icra/new-g/icra-project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -46,6 +55,8 @@
       <workItem from="1655825899437" duration="7940000" />
       <workItem from="1655846347853" duration="13000" />
       <workItem from="1655874929369" duration="83000" />
+      <workItem from="1656014823851" duration="1096000" />
+      <workItem from="1656229742686" duration="2366000" />
     </task>
     <servers />
   </component>

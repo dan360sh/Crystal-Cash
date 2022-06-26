@@ -1,11 +1,5 @@
-export enum wherePlace {
-    // вместо
-    instead = 'instead',
-    // Внутри до
-    insideFront = 'insideFront',
-    // Внутри после
-    insideAfter = 'insideAfter',
-}
+import { wherePlace } from "src/schemas/advertisement";
+
 
 export interface MetaPlace {
     selector: string,

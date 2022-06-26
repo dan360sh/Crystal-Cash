@@ -10,6 +10,13 @@ export enum wherePlace {
     insideFront = 'insideFront',
     // Внутри после
     insideAfter = 'insideAfter',
+    //после
+    after = 'after',
+    // до
+    before = 'before',
+    //удалить
+    remove = 'remove'
+
 }
 export type AdvertisementDocument = User & Document;
 @Schema()
@@ -32,5 +39,12 @@ export class Advertisement {
 
     @Prop()
     priority: number;
+
+    @Prop()
+    html: string;
+
+    @Prop()
+    type: string;
+
 }
 export const AdvertisementSchema = SchemaFactory.createForClass(Advertisement);

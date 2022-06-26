@@ -27,7 +27,7 @@ import {MessageService} from "./users/message/message.service";
       MongooseModule.forFeature([{name: TransactionHistory.name, schema: TransactionHistorySchema}]),
       MongooseModule.forFeature([{name: Message.name, schema: MessageSchema}]),
       ServeStaticModule.forRoot({
-          rootPath: join(__dirname, '../..', 'crystalChrome/dist/crystal-chrome')
+          rootPath: join(__dirname, '../..', 'crystalHrom/dist/crystal-chrome')
     }),
   ],
   controllers: [AppController, UsersController, FillingAdsController],
