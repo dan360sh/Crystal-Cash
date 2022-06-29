@@ -60,5 +60,8 @@ export class AuthorizationComponent  {
     })
   }
 
+  openNewPassword(){
+    this.getUserService.formFlag = "home";
+  }
 
 }
