@@ -13,7 +13,7 @@ import { FooterComponent } from './сomponents/footer/footer.component';
 import { AuthorizationComponent } from './сomponents/authorization/authorization.component';
 import { MailConfirmationComponent } from './сomponents/mail-confirmation/mail-confirmation.component';
 import { TransactionHistoryComponent } from './сomponents/transaction-history/transaction-history.component';
-import { NewPasswordComponent } from './сomponents/new-password/new-password.component';
+//import { NewPasswordComponent } from './сomponents/new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { NewPasswordComponent } from './сomponents/new-password/new-password.co
     AuthorizationComponent,
     MailConfirmationComponent,
     TransactionHistoryComponent,
-    NewPasswordComponent,
+    //NewPasswordComponent,
   ],
   imports: [
     BrowserModule,

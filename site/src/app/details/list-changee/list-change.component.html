@@ -1,0 +1,7 @@
+<div>
+  <div class="flex-div" *ngFor="let list of lists">
+    <p>{{list.text}}</p>
+    <button (click)="edit(list)" type="button" class="btn btn-primary">Редактировать</button>
+    <button (click)="delete(list)" type="button" class="btn btn-danger">Удалить</button>
+  </div>
+</div>

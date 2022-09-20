@@ -1,0 +1,11 @@
+.flex-div{
+  display: flex;
+  align-items: center;
+}
+button{
+  font-size: 9px;
+
+}
+p{
+  margin: 0;
+}
