@@ -1,11 +1,20 @@
-<form (ngSubmit)="mailConfirmation()">
-  <h3>Подтвердите почту</h3>
-  <p>На почту {{getUserService.user?.email}} было отправленно писимо с кодом подтверждения. Введите код из письма.</p>
-  <button class="btn btn-primary">Отправить письмо еще раз</button>
-  <button class="btn btn-primary">Сменить почту</button>
-  <app-butstrap-input  [inputModel]="mailConfirmationModel" [errorContext]="comeErrorParse">
-  </app-butstrap-input>
-  <button [disabled]="comeErrorParse.errorFlag || load" type="submit" class="btn btn-primary">
-    <span *ngIf="load" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    {{button}}</button>
-</form>
+<div class="my-content">
+  <form (ngSubmit)="mailConfirmation()">
+    <p class="h1">Подтвердите почту</p>
+    <p>На почту <span style="font-weight: bold;">swqazxcd@gmail.com</span><span class="change">
+      (Сменить)
+    </span>
+      {{getUserService.user?.email}} было отправленно писимо с кодом подтверждения. Введите код из письма.</p>
+    <div class="flex">
+      <app-butstrap-input  [inputModel]="mailConfirmationModel" [errorContext]="comeErrorParse">
+      </app-butstrap-input>
+      <button [disabled]="comeErrorParse.errorFlag || load" type="submit" class="btn btn-primary send">
+
+        <span *ngIf="load" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        {{button}}</button>
+    </div>
+  </form>
+  <div>
+    <button class="btn btn-primary">Отправить письмо еще раз</button>
+  </div>
+</div>

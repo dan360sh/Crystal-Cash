@@ -1,1 +1,14 @@
-<h1>Привет мир!</h1>
+<div class="flex-div">
+<form style="margin-right: 20px"  >
+  <app-butstrap-input *ngFor="let input of this.inputModel" [inputModel]="input" [errorContext]="comeErrorParse">
+  </app-butstrap-input>
+  <button *ngIf="!id" [disabled]="comeErrorParse.errorFlag || load" type="submit" class="btn btn-primary" (click)="fillingAds()" >
+    <span *ngIf="load" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    отправить</button>
+  <button *ngIf="id" [disabled]="comeErrorParse.errorFlag || load" type="button" class="btn btn-primary" (click)="editFilling()">
+    <span *ngIf="load" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    изменить</button>
+</form>
+<app-list-changee (editChange)="edit($event)"
+                  (deleteChange)="delete($event)" [lists]="fillings"></app-list-changee>
+</div>

@@ -61,6 +61,8 @@ export interface advertisementParse{
     html: string;
 
     wherePlace: string;
+
+    id: string;
 }
 
 export function responsePreparation(advertisement: advertisementParse[]): any{
@@ -68,26 +70,37 @@ export function responsePreparation(advertisement: advertisementParse[]): any{
         return b.priority - a.priority;
     });
     let mass = {};
-    let answer = [];
+    let answer = {};
     for(let el of advertisement){
+
         if(mass[el.selector]){
+            console.log(mass[el.selector], 'mass[el.selector]')
             for(let i = el.minCount; el.maxCount >= i; i++){
-                if(!mass[el.selector].include(i)){
-                    answer.push({
+                if(!mass[el.selector]?.includes(i)){
+                    if(!answer[el.selector + el.wherePlace]){
+                        answer[el.selector + el.wherePlace] = [];
+                    }
+                    answer[el.selector + el.wherePlace].push({
                         selector: el.selector,
                         html: el.html,
                         wherePlace: el.wherePlace,
-                        count: i
+                        count: i,
+                        id: el.id
                     });
                     mass[el.selector].push(i);
+                    break;
                 }
             }
         }else{
-            answer.push({
+            if(!answer[el.selector + el.wherePlace]){
+                answer[el.selector + el.wherePlace] = [];
+            }
+            answer[el.selector + el.wherePlace].push({
                 selector: el.selector,
                 html: el.html,
                 wherePlace: el.wherePlace,
-                count: el.minCount
+                count: el.minCount,
+                id: el.id
             });
             mass[el.selector] = [el.minCount];
         }

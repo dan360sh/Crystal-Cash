@@ -8,14 +8,13 @@ import {Advertisement, AdvertisementDocument, wherePlace} from "../schemas/adver
 import {HistoryDocument, History} from "../schemas/history";
 import {UrlFilling, UrlFillingDocument} from "../schemas/urlFilling";
 import {MessageService} from "./message/message.service";
-import {TransactionHistorySchema} from "../schemas/transactionHistory";
+
 import {
     advertisementParse,
     parseQuery,
     responsePreparation,
     searchParse,
     searchСompare,
-    urlParams
 } from "../function/parseUrl";
 
 export function reformatorUser(save: any, token?: string): GetUsers {
@@ -39,7 +38,8 @@ export function transformAdvertisement(advertisement: any): advertisementParse {
         minCount: advertisement.minCount,
         priority: advertisement.priority,
         html: advertisement.html,
-        wherePlace: advertisement. wherePlace
+        wherePlace: advertisement.wherePlace,
+        id: advertisement._id
     }
 }
 
@@ -110,17 +110,27 @@ export class UsersService {
             transactionHistoryCount: 0
         });
         let save;
+        await this.sendEmail('Код активации: ' + emailCod, userDto.email);
         try {
             save = await newUser.save();
         } catch (e) {
             res.status(400);
             return res.send([{message: "Пользователь уже существует", errorField: "name"}]);
         }
-        await this.sendEmail('Код активации: ' + emailCod, userDto.email);
+
         this.messageService.newMessage("Спасибо за регистрацию регистацию !", newUser.id);
         this.messageService.newTransactionHistory("За регистацию", 3, newUser.id);
         res.cookie('lol', token);
         return res.send(reformatorUser(save, token));
+    }
+
+    async roleUser(token?: string): Promise<any>{
+        let user = await this.userModel.findOne({token});
+        if (!user) {
+            throw new HttpException([{message: "не авторизован"}], HttpStatus.BAD_REQUEST);
+        }
+        console.log("user", user);
+        return user;
     }
 
     async getUser(token?: string) {
@@ -131,7 +141,7 @@ export class UsersService {
         if (!o) {
             throw new HttpException([{message: "не авторизован"}], HttpStatus.BAD_REQUEST);
         }
-        this.messageService.newTransactionHistory("За посещение ресурса", -1, o.id);
+        this.messageService.newTransactionHistory("За посещение ресурса", +2, o.id);
         return o;
     }
 
@@ -154,7 +164,6 @@ export class UsersService {
     }
 
     async auth(authDto: AuthDto, res: any) {
-        //const token = Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2);
         const user = await this.userModel.findOne({name: authDto.name});
         if (user) {
             if (user.password === authDto.password) {
@@ -181,8 +190,9 @@ export class UsersService {
 
     async crystalSearch(brouser: any, res: any, ip: string) {
         // console.log(brouser.token)
-        // console.log(brouser);
+         //console.log(brouser, 'brouser');
         // console.log(ip);
+
 
         let user;
         user = await this.userModel.findOne({token: brouser.token});
@@ -201,41 +211,50 @@ export class UsersService {
         let parseUrl = parseQuery(brouser.history);
         let domenData = await this.UrlFillingModel.find({$or: [{domen: brouser.domen}, {url: parseUrl.path}]},
             {search: 1, advertisement: 1, url: 1, domen: 1,});
+        //console.log(domenData, 'domenData')
 
         //Массив урлов
         let urlFilling = [];
         if (domenData) {
             for (let data of domenData) {
                 if (data.domen === brouser.domen && data.url == "*") {
-                    console.log('data', data);
+                   // console.log('data', data);
                     urlFilling.push(data);
                 }
                 if (data.domen === "*" && data.url == parseUrl.path) {
-                    console.log('path_data', data);
+                    //console.log('path_data', data);
                     urlFilling.push(data);
                 }
             }
         }
-
+       // console.log("до фильтра",urlFilling)
         if (parseUrl.query?.q) {
             urlFilling = urlFilling.filter(i => {
-                if (i.search != null) {
+               // console.log("i.search", i.search)
+                if (i.search) {
                     if (searchСompare(i.search.split('+'), parseUrl.query.q.split('+'))) {
                         return true;
                     }
                 } else {
+                    //console.log("вернем")
                     return true;
                 }
             })
         }
+        //console.log(urlFilling, 'urlFilling1')
+        //.splice(e.advertisement.indexOf())
+        console.log(user.foundСrystals, 'user')
+        urlFilling = urlFilling.map(e =>  {
+            return e.advertisement;
 
-        urlFilling = urlFilling.map(e =>  e.advertisement);
+        });
+        console.log("urlFilling2", urlFilling,"xx");
         let mass2 = [];
         for(let i of urlFilling){
             mass2.push(...i);
         }
         urlFilling = mass2;
-        console.log(' urlFilling', urlFilling)
+       // console.log(' urlFilling', urlFilling)
         let otvet: any = [];
         if (urlFilling.length > 0) {
             let a = await this.AdvertisementModel.find({_id: {$in: urlFilling}}, {
@@ -244,18 +263,32 @@ export class UsersService {
                 minCount: 1,
                 priority: 1,
                 html: 1,
-                wherePlace: 1
+                wherePlace: 1,
+                _id: 1,
             });
-            console.log('a', a);
+           // console.log('a', a);
             if (a) {
                 let ad: advertisementParse[] = [];
                 for (let j of a) {
-                    ad.push(transformAdvertisement(j));
+                    let crystalsFlag = true;
+                    for(let crystals of user.foundСrystals){
+                        console.log( crystals, ' crystals')
+                        console.log((j as any)._id, ' crystals id');
+                        if(crystals == (j as any)._id){
+                            crystalsFlag = false;
+                            console.log(crystalsFlag, 'crystalsFlag');
+                        }
+                    }
+                    if(crystalsFlag){
+                        ad.push(transformAdvertisement(j));
+                    }
                 }
+                //console.log(ad, 'ad')
                 otvet = responsePreparation(ad);
-                console.log('otvet', otvet);
+                //console.log('otvet', otvet);
             }
         }
+        //console.log(otvet, 'otvet');
         return res.send(otvet);
     }
 
@@ -277,19 +310,20 @@ export class UsersService {
             port: 465,
             secure: true,
             auth: {
-                user: 'danil.shilov.2023@mail.ru',
-                pass: 'dkBpJy8D47SaFy2uRTEs'
+                user: 'petechka-petrov-1993@internet.ru',
+                pass: 'eddqgO9wHymVKFgz6mb2'
             }
         });
         try {
             await transporter.sendMail({
-                from: 'danil.shilov.2023@mail.ru',
+                from: 'petechka-petrov-1993@internet.ru',
                 to: emailTo,
                 subject: 'Активация аккаунта',
                 text: message
             });
             return 'ok';
         } catch (e) {
+            console.log('почта', e)
             throw new HttpException([{
                 message: 'Неудалось отправить сообщение, проверьте правильность написания почты',
                 errorField: "email"

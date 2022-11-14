@@ -1,0 +1,14 @@
+<div class="flex-div">
+<form >
+  <app-butstrap-input *ngFor="let input of this.inputModel" [inputModel]="input" [errorContext]="comeErrorParse">
+  </app-butstrap-input>
+  <button (click)="fillingAds()" [disabled]="comeErrorParse.errorFlag || load" type="submit" class="btn btn-primary">
+    <span *ngIf="load" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    отправить</button>
+  <button (click)="editUrlFilling()" [disabled]="comeErrorParse.errorFlag || load" type="submit" class="btn btn-primary">
+    <span *ngIf="load" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    изменить</button>
+</form>
+<app-list-changee (editChange)="edit($event)"
+                  (deleteChange)="delete($event)" [lists]="urlFillings"></app-list-changee>
+</div>

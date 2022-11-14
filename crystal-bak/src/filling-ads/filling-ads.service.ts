@@ -14,17 +14,17 @@ export class FillingAdsService {
     async newFilling(fillingDto: MetaPlace){
         return new this.AdvertisementModel(fillingDto)
     }
-    async urlFilling(fillingUrl: any){
-        let filling = new this.UrlFillingModel(fillingUrl);
-        let save;
-        try{
-            save = await filling.save();
-        }catch (e){
-            return e
-        }
-        return save;
+    async editFilling(id: string, fillingDto: MetaPlace){
+        return await this.AdvertisementModel.findOneAndUpdate({_id: id}, fillingDto)
     }
-    async getFillings(){
-        return await this.AdvertisementModel.find({}, {id: 1, name: 1})
+    async deleteFilling(id: string){
+        return await this.AdvertisementModel.findOneAndDelete({_id: id});
+    }
+
+    async getFillings(advertisement?: string): Promise<any>{
+        if(advertisement){
+            return await this.AdvertisementModel.findOne({_id: {$in: advertisement}});
+        }
+        return await this.AdvertisementModel.find({})
     }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import {InjectModel} from "@nestjs/mongoose";
 import mongoose, {Model, Schema, Types} from "mongoose";
-import { UrlFillingDocument} from "../../schemas/urlFilling";
+
 import {
     TransactionHistory,
     TransactionHistoryDocument,

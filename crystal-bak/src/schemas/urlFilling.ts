@@ -7,6 +7,8 @@ import {Advertisement} from "./advertisement";
 export type UrlFillingDocument = UrlFilling & Document;
 @Schema()
 export class UrlFilling {
+    @Prop()
+    name: string;
 
     @Prop()
     url: string;

@@ -5,14 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efee1621-f829-4dbc-84d8-51ad1fbfca34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../crystal-bak/src/function/parseUrl.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../crystal-bak/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/classis/form-control.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/classis/form-control.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../crystal-bak/src/dto/crystalDto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/dto/crystalDto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/schemas/advertisement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/schemas/advertisement.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/filling-ads/filling-ads.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/filling-ads/filling-ads.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/filling-ads/filling-ads.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/filling-ads/filling-ads.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/function/parseUrl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/function/parseUrl.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../crystal-bak/src/schemas/urlFilling.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/schemas/urlFilling.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/schemas/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/schemas/users.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/url-filling/url-filling.controller.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/url-filling/url-filling.controller.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/url-filling/url-filling.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/url-filling/url-filling.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/url-filling/url-filling.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/url-filling/url-filling.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/url-filling/url-filling.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/url-filling/url-filling.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystal-bak/src/users/message/message.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/users/message/message.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../crystal-bak/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystal-bak/src/users/users.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystalHrom/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../crystalHrom/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystalHrom/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystalHrom/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/authorization/authorization.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/authorization/authorization.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/authorization/authorization.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/authorization/authorization.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/authorization/authorization.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/authorization/authorization.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/mail-confirmation/mail-confirmation.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/mail-confirmation/mail-confirmation.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/mail-confirmation/mail-confirmation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/mail-confirmation/mail-confirmation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/mail-confirmation/mail-confirmation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crystalHrom/src/app/сomponents/mail-confirmation/mail-confirmation.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/admin/admin/admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/admin/admin/admin.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/admin/advertisement/filling-ads.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/admin/advertisement/filling-ads.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/admin/advertisement/filling-ads.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/admin/advertisement/filling-ads.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/admin/advertisement/filling-ads.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/admin/advertisement/filling-ads.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/admin/routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/admin/routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/admin/url-filling/url-filling.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/admin/url-filling/url-filling.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/admin/url-filling/url-filling.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/admin/url-filling/url-filling.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/admin/url-filling/url-filling.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/admin/url-filling/url-filling.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/admin/url-filling/url-filling.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/admin/url-filling/url-filling.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/butstrap-input/butstrap-input.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/butstrap-input/butstrap-input.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/butstrap-input/butstrap-input.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/butstrap-input/butstrap-input.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/butstrap-input/butstrap-input.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/butstrap-input/butstrap-input.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/list-changee/list-change.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/list-changee/list-change.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/list-changee/list-change.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/list-changee/list-change.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/list-changee/list-change.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/list-changee/list-change.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/app/details/model/InputModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/app/details/model/InputModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../site/src/assets/img/texts.json" beforeDir="false" afterPath="$PROJECT_DIR$/../site/src/assets/img/texts.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,17 +69,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/project/Crystal-Cash/crystalCash&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,6 +95,10 @@
       <workItem from="1655874929369" duration="83000" />
       <workItem from="1656014823851" duration="1096000" />
       <workItem from="1656229742686" duration="2366000" />
+      <workItem from="1663668117740" duration="58000" />
+      <workItem from="1663668200341" duration="1221000" />
+      <workItem from="1664433415792" duration="15000" />
+      <workItem from="1664450993164" duration="112000" />
     </task>
     <servers />
   </component>

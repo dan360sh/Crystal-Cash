@@ -15,6 +15,10 @@ import {History, HistorySchema} from "./schemas/history";
 import {TransactionHistory, TransactionHistorySchema} from "./schemas/transactionHistory";
 import {Message, MessageSchema} from "./schemas/message";
 import {MessageService} from "./users/message/message.service";
+import { UrlFillingController } from './url-filling/url-filling.controller';
+import {UrlFillingService} from "./url-filling/url-filling.service";
+import { CrystalController } from './crystal/crystal.controller';
+import { CrystalService } from './crystal/crystal.service';
 
 @Module({
   imports: [
@@ -27,11 +31,11 @@ import {MessageService} from "./users/message/message.service";
       MongooseModule.forFeature([{name: TransactionHistory.name, schema: TransactionHistorySchema}]),
       MongooseModule.forFeature([{name: Message.name, schema: MessageSchema}]),
       ServeStaticModule.forRoot({
-          rootPath: join(__dirname, '../..', 'crystalHrom/dist/crystal-chrome')
+          rootPath: join(__dirname, '../..', 'site/dist/front-crystal')
     }),
   ],
-  controllers: [AppController, UsersController, FillingAdsController],
-  providers: [AppService, UsersService, FillingAdsService, MessageService],
+  controllers: [AppController, UsersController, FillingAdsController, UrlFillingController, CrystalController],
+  providers: [AppService, UsersService, FillingAdsService, MessageService, UrlFillingService, CrystalService],
 })
 export class AppModule {
     constructor() {

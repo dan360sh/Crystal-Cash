@@ -1,5 +1,8 @@
+export interface Dropdowns{value: any, text: string}
+
 export interface InputModel{
-  value: string;
+  value: any;
+  type?: string;
   error: {
     message: string[];
     flag: boolean;
@@ -8,5 +11,6 @@ export interface InputModel{
   label?: string;
   placeholder?: string;
   minLength?: number;
-  maxLength?: number
+  maxLength?: number;
+  dropdowns?: Dropdowns[]
 }

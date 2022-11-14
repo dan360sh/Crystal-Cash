@@ -12,6 +12,8 @@ import { ButstrapInputComponent } from './details/butstrap-input/butstrap-input.
 import { HomeComponent } from './details/home/home.component';
 import { AdminComponent } from './details/admin/admin/admin.component';
 import { FillingAdsComponent } from './details/admin/advertisement/filling-ads.component';
+import { UrlFillingComponent } from './details/admin/url-filling/url-filling.component';
+import { ListChangeComponent } from './details/list-changee/list-change.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { FillingAdsComponent } from './details/admin/advertisement/filling-ads.c
     HomeComponent,
     AdminComponent,
     FillingAdsComponent,
+    UrlFillingComponent,
+    ListChangeComponent,
 
   ],
   imports: [

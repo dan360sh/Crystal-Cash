@@ -1,11 +1,38 @@
 <div class="form-group">
   <label for="{{name}}">{{inputModel.label}}</label>
-  <input [(ngModel)]="inputModel.value"
+  <input *ngIf="typeInput"
+         [(ngModel)]="inputModel.value"
          name="name"
          id="{{name}}"
          (change)="change()"
          [ngClass]="{'is-invalid': inputModel.error.flag}"
          class="form-control is-invalid" placeholder="{{inputModel.placeholder}}">
+  <textarea *ngIf="typeTextarea"
+            [(ngModel)]="inputModel.value"
+            name="name"
+            id="{{name}}"
+            (change)="change()"
+            [ngClass]="{'is-invalid': inputModel.error.flag}"
+            class="form-control is-invalid" placeholder="{{inputModel.placeholder}}"></textarea>
+    <div *ngIf="typeDropdowns" class="d-inline-block width" ngbDropdown #myDrop="ngbDropdown">
+      <button type="button" class="btn btn-outline-primary me-2 width" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">{{this.inputModel.value?.text}}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownManual" class="width">
+        <button *ngFor="let dropdown of inputModel.dropdowns" (click)="dropdowns(dropdown)" ngbDropdownItem>{{dropdown.text}}</button>
+      </div>
+    </div>
+  <div *ngIf="typeMultiSelect">
+    <div>
+      <div *ngFor="let select of inputModel.value">
+        <p>
+          {{select?.text}}
+        </p>
+        <button (click)="delete(select)">Удалить</button>
+      </div>
+    </div>
+    <div>
+      <p *ngFor="let dropdown of inputModel.dropdowns" (click)="select(dropdown)">{{dropdown.text}}</p>
+    </div>
+  </div>
   <div class="invalid-feedback">
     <small *ngFor="let message of inputModel.error.message">{{message}}</small>
   </div>

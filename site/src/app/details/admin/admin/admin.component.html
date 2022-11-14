@@ -1,8 +1,18 @@
-<p>admin works!</p>
-<ul class="navbar-nav">
-  <li class="nav-item">
-    <a class="nav-link" routerLink="fillingAds">Новая реклама</a>
-  </li>
-</ul>
-<router-outlet></router-outlet>
-
+<div class="row">
+  <div class="col-3">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="urlFilling">Добавить URL рекламы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="fillingAds">Добавить контент рекламы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="fillingAds">Статистика по пользователям</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

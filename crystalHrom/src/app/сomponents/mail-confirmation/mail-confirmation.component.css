@@ -1,0 +1,29 @@
+.h1{
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+.my-content{
+  padding: 0 14px;
+
+}
+button{
+  font-size: 12px;
+}
+button + button{
+  margin-left: 12px;
+}
+.send{
+  height: 38px;
+  margin-bottom: 14px;
+  margin-left: 13px;
+}
+.flex{
+  display: flex;
+  align-items: end;
+}
+.change{
+  color: #0d6efd;
+  cursor: pointer;
+  font-weight: bold;
+}

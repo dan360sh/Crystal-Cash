@@ -24,7 +24,7 @@ export class MailConfirmationComponent {
   };
 
   get button (): string{
-    return this.load ? 'Загрузка' : 'Отправить';
+    return this.load ? 'Загрузка' : 'Подтвердить';
   }
   readonly comeErrorParse = new ErrorParser([this.mailConfirmationModel]);
 
@@ -51,6 +51,9 @@ export class MailConfirmationComponent {
         this.comeErrorParse.addError(result as ErrorDto[])
       }
     })
+  }
+  changeEmail(){
+    
   }
 
 }

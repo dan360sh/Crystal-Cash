@@ -10,17 +10,45 @@ const host = "http://localhost:3000"
 export class HttpService {
 
   constructor(private http: HttpClient) { }
-  form(inputs: InputModel[], path: string): Observable<GetUsers | ErrorDto[]>{
+  form(inputs: InputModel[], path: string, type?: string): Observable<any | ErrorDto[]>{
     let user: any = {};
     for (let i of inputs){
-      user[i.name] = i.value;
+      if(i.type == "dropdowns"){
+        user[i.name] = i.value.value;
+      }else{
+        if(i.type ==  "multiSelect"){
+          console.log("multiSelect", i.value)
+          user[i.name] = [];
+          for(let e of i.value){
+            console.log("multiSelecteeee", e)
+            user[i.name].push(e.value._id);
+          }
+        }else{
+          user[i.name] = i.value;
+        }
+      }
     }
-    return this.http.post<GetUsers>(host + path, user).pipe<ErrorDto[]>(catchError((err => {
+    if(type === "patch"){
+      return this.http.patch<any>(host + path, user).pipe<ErrorDto[]>(catchError((err => {
+        return [err.error];
+      })))
+    }
+    return this.http.post<any>(host + path, user).pipe<ErrorDto[]>(catchError((err => {
       return [err.error];
     })))
   }
   getUse(){
     return this.http.get<GetUsers>(`${host}/users/getUser`).pipe<ErrorDto[]>(catchError((err => {
+      return [err.error];
+    })))
+  }
+  get(path: string){
+    return this.http.get<any>(host + path).pipe<ErrorDto[]>(catchError((err => {
+      return [err.error];
+    })))
+  }
+  delete(path: string){
+    return this.http.delete<any>(host + path).pipe<ErrorDto[]>(catchError((err => {
       return [err.error];
     })))
   }

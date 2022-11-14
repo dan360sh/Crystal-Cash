@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import {TransactionHistorySchema} from "./transactionHistory";
+import mongoose, { Document } from 'mongoose';
+import {Advertisement} from "./advertisement";
 
 export type UserDocument = User & Document;
 @Schema()
@@ -45,6 +45,10 @@ export class User {
 
     @Prop()
     transactionHistoryCount: number;
+
+    //Найденые кристалы
+    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref : 'Advertisement' }]})
+    foundСrystals: Advertisement [];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

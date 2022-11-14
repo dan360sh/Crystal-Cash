@@ -9,6 +9,7 @@ export interface MetaPlace {
     priority: number;
     delete?: boolean;
 }
+
 export interface InputModel{
     value: string;
     error: {

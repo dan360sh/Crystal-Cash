@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Patch, Post} from '@nestjs/common';
 import {FillingAdsService} from "./filling-ads.service";
 import {MetaPlace} from "../dto/crystalDto";
 
@@ -12,12 +12,18 @@ export class FillingAdsController {
         filling.save();
         return filling;
     }
-
-    @Post('urlFilling')
-    async urlFilling(@Body() fillingDto: any){
-        return await this.fillingAdsService.urlFilling(fillingDto);
-
+    @Patch(':id')
+    async editFilling(@Param('id') id: string, @Body() fillingDto: MetaPlace){
+        let filling = await this.fillingAdsService.editFilling(id, fillingDto);
+        return filling;
     }
+
+    @Delete(':id')
+    async deleteFilling(@Param('id') id: string){
+        let filling = await this.fillingAdsService.deleteFilling(id);
+        return filling;
+    }
+
     @Get('getFillings')
     getFillings(){
         return this.fillingAdsService.getFillings();
