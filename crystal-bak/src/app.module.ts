@@ -22,7 +22,7 @@ import { CrystalService } from './crystal/crystal.service';
 
 @Module({
   imports: [
-      MongooseModule.forRoot('mongodb://localhost:27017'),
+      MongooseModule.forRoot('mongodb://127.0.0.1:27017'),
       MongooseModule.forFeature([{name: User.name, schema: UserSchema}]),
       MongooseModule.forFeature([{name: Advertisement.name, schema: AdvertisementSchema}]),
       MongooseModule.forFeature([{name: UrlFilling.name, schema: UrlFillingSchema}]),

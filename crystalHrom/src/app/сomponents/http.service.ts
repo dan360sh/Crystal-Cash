@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {catchError, map, Observable, tap} from "rxjs";
+import {catchError, Observable, tap} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import { ErrorDto, GetUsers} from "./model/UserDto";
 import {InputModel} from "./model/InputModel";
-import {messageInterface, messageToParse} from "./transaction-history/transaction-history.component";
+import { messageToParse} from "./transaction-history/transaction-history.component";
+import {MemoryService} from "../services/memoryService";
 const host = "http://localhost:3000"
 function getCookie(name: string) {
   let matches = document.cookie.match(new RegExp(
@@ -24,7 +25,8 @@ export interface MailСonfirmDto{
 })
 export class HttpService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private readonly memory: MemoryService) { }
   form(inputs: InputModel[], path: string): Observable<GetUsers | ErrorDto[]>{
     let user: any = {};
     for (let i of inputs){
@@ -33,23 +35,11 @@ export class HttpService {
     return this.http.post<GetUsers>(host + path, user,{headers: {
         'Access-Control-Allow-Origin': '*'
       }})
-      .pipe(tap(e => {
-        if(e.token){
-          try {
-            (window as any).chrome.storage.local.set({
-              'token': e.token,
-            });
-            console.log('запуск прода')
-          }catch (e){
-            console.log('запуск теста')
-          }
-          document.cookie = `lol=${e.token}`;
-        }
 
-      }))
       .pipe<ErrorDto[]>( catchError((err => {
       return [err.error];
     })))
+
 
   }
   getUse(){

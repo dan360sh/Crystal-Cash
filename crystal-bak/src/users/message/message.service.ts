@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import {InjectModel} from "@nestjs/mongoose";
-import mongoose, {Model, Schema, Types} from "mongoose";
+import mongoose, { Model } from "mongoose";
 
 import {
     TransactionHistory,

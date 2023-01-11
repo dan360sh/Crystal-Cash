@@ -6,13 +6,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegUserComponent } from './сomponents/reg-user/reg-user.component';
 import {ButstrapInputComponent} from "./сomponents/butstrap-input/butstrap-input.component";
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { CrystalComponent } from './сomponents/crystal/crystal.component';
 import { HeaderComponent } from './сomponents/header/header.component';
 import { FooterComponent } from './сomponents/footer/footer.component';
 import { AuthorizationComponent } from './сomponents/authorization/authorization.component';
 import { MailConfirmationComponent } from './сomponents/mail-confirmation/mail-confirmation.component';
 import { TransactionHistoryComponent } from './сomponents/transaction-history/transaction-history.component';
+import {AppHttpInterceptor} from "./services/httpInterceptor";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { TransactionHistoryComponent } from './сomponents/transaction-history/t
     NgbModule,
     HttpClientModule,
   ],
-  providers: [],
+    providers: [
+      { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true},
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 import {GetUsers} from "../model/UserDto";
+import {MemoryService} from "../../services/memoryService";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetUserService {
-  constructor() {
-    this._backFlag = (window as any).localStorage.getItem('backFlag') == "true";
-    this._formFlag = (window as any).localStorage.getItem('formFlag') ?? "home";
-    console.log('init', this._backFlag);
+  constructor(private readonly memory: MemoryService) {
+    // this._backFlag = await memory.getValue('backFlag') == "true";
+    // this._formFlag = (window as any).localStorage.getItem('formFlag') ?? "home";
+    // console.log('init', this._backFlag);
+    this.getValue();
+  }
+  async getValue(){
+    this._backFlag = (await this.memory.getValue('backFlag')) == "true";
+    this._formFlag = (await this.memory.getValue('formFlag')) ?? "home";
   }
   user?: GetUsers;
   private _backFlag: boolean = false;
   set backFlag (val : boolean){
     this._backFlag = val;
-    (window as any).localStorage.setItem('backFlag', val);
+    this.memory.save('backFlag', val);
   };
   get backFlag (): boolean{
     return this._backFlag;
@@ -26,7 +32,7 @@ export class GetUserService {
   }
   set formFlag(val : string){
     this._formFlag = val;
-    (window as any).localStorage.setItem('formFlag', val);
+    this.memory.save('formFlag', val);
   }
 
   errorFlag = false;

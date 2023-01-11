@@ -29,7 +29,7 @@
       <button type="button" class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
       <div class="dropdown-menu" ngbDropdownMenu>
         <button (click)="drop()" ngbDropdownItem>Выйти</button>
-        <button (click)="clirAll()">Удалить все</button>
+        <button (click)="clearAll()">Удалить все</button>
         <p *ngIf="getUserService.user">Реферальный код: {{getUserService.user.ref}}</p>
       </div>
     </div>

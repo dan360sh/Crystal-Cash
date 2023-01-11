@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {GetUserService} from "../service/get-user.service";
 import {HttpService} from "../http.service";
+import {MemoryService} from "../../services/memoryService";
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,11 @@ import {HttpService} from "../http.service";
 })
 export class HeaderComponent {
 
-  constructor(readonly getUserService: GetUserService, private readonly httpService: HttpService) { }
+  constructor(
+    readonly getUserService: GetUserService,
+    private readonly httpService: HttpService,
+    private readonly memory: MemoryService
+  ) { }
   get button(): string{
     return this.getUserService.backFlag ? "Назад" : "Войти";
   }
@@ -25,14 +30,15 @@ export class HeaderComponent {
     this.getUserService.user = undefined;
     this.httpService.out();
   }
-  clirAll(){
-    try {
-      (window as any).chrome.storage.local.remove('token');
-      (window as any).chrome.storage.local.remove('noToken');
-      console.log('удалено');
-    }catch (e){
-      console.log(e);
-    }
+  clearAll(): void{
+    // try {
+    //   (window as any).chrome.storage.local.remove('token');
+    //   (window as any).chrome.storage.local.remove('noToken');
+    //   console.log('удалено');
+    // }catch (e){
+    //   console.log(e);
+    // }
+    this.memory.removeAll();
   }
   close(){
     this.getUserService.errorFlag = false;
