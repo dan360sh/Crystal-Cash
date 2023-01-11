@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post, Req, Res, Response, Request, Ip} from '@nestjs/common';
+import {Body, Controller, Get, Post, Req, Response, Ip} from '@nestjs/common';
 import {UsersService} from "./users.service";
 import {AuthDto, CreateUserDto, MailСonfirmDto} from "./dto/createUserDto";
 import {MessageService} from "./message/message.service";
@@ -14,7 +14,9 @@ export class UsersController {
     }
     @Get('getUser')
     async getUser(@Req() req: any){
-        return await this.usersService.getUser(req.cookies.lol);
+        console.log(req.headers, 'headers1');
+        console.log(req.headers.authorization, 'headers');
+        return await this.usersService.getUser(req.headers.authorization);
     }
     @Post('mailConfirm')
     async mailСonfirm(@Body() mailСonfirmDto: MailСonfirmDto){
@@ -30,7 +32,7 @@ export class UsersController {
     }
     @Post('out')
     async out(@Req() req: any, @Response() res){
-        return await this.usersService.out(req.cookies.lol, res);
+        return await this.usersService.out(req.headers.authorization, res);
     }
 
     @Post('crystalSearch')
@@ -40,6 +42,6 @@ export class UsersController {
 
     @Get('transaction-history')
     async transactionHistory(@Req() req: any){
-        return await this.messageService.transactionHistory(req.cookies.lol);
+        return await this.messageService.transactionHistory(req.headers.authorization);
     }
 }

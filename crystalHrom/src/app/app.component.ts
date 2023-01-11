@@ -24,7 +24,7 @@ export class AppComponent {
     this.tabFlag = (await this.memory.getValue('tabFlag')) ?? "auth";
     this.httpService.getUse().subscribe(result => {
       this.load = false;
-      if((result as any).name){
+      if((result as any)?.name){
         this.getUserService.loginUser(result as GetUsers);
       } else {
         this.memory.remove('token');

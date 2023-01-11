@@ -1,10 +1,10 @@
-import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
+import {HttpException, HttpStatus, Injectable, Req} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {User, UserDocument} from "../schemas/users";
 import {Model} from "mongoose";
 import {AuthDto, CreateUserDto, ErrorMessage, GetUsers, MailСonfirmDto} from "./dto/createUserDto";
 import {createTransport} from "nodemailer";
-import {Advertisement, AdvertisementDocument, wherePlace} from "../schemas/advertisement";
+import {Advertisement, AdvertisementDocument } from "../schemas/advertisement";
 import {HistoryDocument, History} from "../schemas/history";
 import {UrlFilling, UrlFillingDocument} from "../schemas/urlFilling";
 import {MessageService} from "./message/message.service";
@@ -13,7 +13,6 @@ import {
     advertisementParse,
     parseQuery,
     responsePreparation,
-    searchParse,
     searchСompare,
 } from "../function/parseUrl";
 
@@ -167,7 +166,6 @@ export class UsersService {
         const user = await this.userModel.findOne({name: authDto.name});
         if (user) {
             if (user.password === authDto.password) {
-                res.cookie('lol', user.token);
                 return res.send(reformatorUser(user, user.token));
             } else {
                 res.status(400);
@@ -266,7 +264,6 @@ export class UsersService {
                 wherePlace: 1,
                 _id: 1,
             });
-           // console.log('a', a);
             if (a) {
                 let ad: advertisementParse[] = [];
                 for (let j of a) {
@@ -300,7 +297,6 @@ export class UsersService {
     async sendCodRestorePassword(email: string) {
         const emailCod = Math.random().toString(36).substring(9);
         let codBd = await this.userModel.findOneAndUpdate({email: email, status: 2}, {cod: emailCod});
-        // console.log(codBd);
         await this.sendEmail('Код для смены пароля: ' + emailCod, email);
     }
 
@@ -311,7 +307,7 @@ export class UsersService {
             secure: true,
             auth: {
                 user: 'petechka-petrov-1993@internet.ru',
-                pass: 'eddqgO9wHymVKFgz6mb2'
+                pass: '7mD5w96x01m0ZuKTe1hp'
             }
         });
         try {

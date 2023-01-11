@@ -32,15 +32,11 @@ export class HttpService {
     for (let i of inputs){
       user[i.name] = i.value;
     }
-    return this.http.post<GetUsers>(host + path, user,{headers: {
-        'Access-Control-Allow-Origin': '*'
-      }})
-
+    console.log(host + path, user, 'user');
+    return this.http.post<GetUsers>(host + path, user)
       .pipe<ErrorDto[]>( catchError((err => {
       return [err.error];
     })))
-
-
   }
   getUse(){
     return this.http.get<GetUsers>(`${host}/users/getUser`,

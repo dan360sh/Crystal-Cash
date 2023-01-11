@@ -48,8 +48,10 @@ export class AuthorizationComponent  {
   authorizationUser(){
     this.load = true;
     this.httpService.form(this.authorizationModel, '/users/auth').subscribe(result => {
+      console.log(result,'result');
       this.load = false;
-      if((result as any).name){
+      console.log(result, 'result');
+      if((result as any)?.name){
         this.getUserService.loginUser(result as GetUsers);
         this.getUserService.formFlag = "home";
         this.getUserService.backFlag = false;

@@ -21,9 +21,14 @@ export class AppHttpInterceptor implements HttpInterceptor {
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token =  this.memory.getValue('token');
     console.log('inspect', token);
-    const authReq = req.clone({
-      headers: req.headers.set('Authorization', token),
-    })
+    let header = {};
+    if(token){
+      header = {
+        headers: req.headers.set('Authorization', token)
+      }
+    }
+    const authReq = req.clone(header);
+
     return next.handle(authReq);
   }
 

@@ -7,6 +7,7 @@ export class MemoryService {
 
 
   save( key: string, value: any ): void{
+    console.log('save', key, value)
     try {
       (window as any).chrome.storage.local.set({ key: value });
     }catch (e){
@@ -29,6 +30,7 @@ export class MemoryService {
       return (await (window as any).localStorage.removeItem(key));
     }
   }
+
   async removeAll(): Promise<void>{
     try {
       return (window as any).chrome.storage.local.clear();

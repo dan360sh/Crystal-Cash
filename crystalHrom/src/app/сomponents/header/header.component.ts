@@ -28,16 +28,10 @@ export class HeaderComponent {
   }
   drop(){
     this.getUserService.user = undefined;
+    this.memory.remove('token');
     this.httpService.out();
   }
   clearAll(): void{
-    // try {
-    //   (window as any).chrome.storage.local.remove('token');
-    //   (window as any).chrome.storage.local.remove('noToken');
-    //   console.log('удалено');
-    // }catch (e){
-    //   console.log(e);
-    // }
     this.memory.removeAll();
   }
   close(){

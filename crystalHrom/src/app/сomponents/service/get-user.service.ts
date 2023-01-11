@@ -39,6 +39,7 @@ export class GetUserService {
   errorCode = 1;
 
   loginUser(user: GetUsers){
+    this.memory.save('token', user.token);
     this.user = user;
   }
 }
